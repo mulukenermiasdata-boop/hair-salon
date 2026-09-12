@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="am" data-lang="am">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ሳባ የጸጉር ቤት | Saba Hair Salon</title>
+<meta name="description" content="ሳባ የጸጉር ቤት፡ በቦሌ የሚገኝ የሴቶች እና የወንዶች የጸጉር አሰራር፣ ሽሩባ፣ ቀለም እና እንክብካቤ። ቀጠሮ በዋትስአፕ ይያዙ።">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Ethiopic:wght@400;600;700&family=Noto+Sans+Ethiopic:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#faf6f0;
+    --sand:#f1e8dc;
+    --ink:#1f1a17;
+    --muted:#6b5f57;
+    --copper:#b0652f;
+    --copper-dark:#8e4f22;
+    --rose:#e9c7b3;
+    --line:#e4d8ca;
+    --white:#fffdf9;
+    --serif:"Noto Serif Ethiopic","Cormorant Garamond",Georgia,serif;
+    --sans:"Noto Sans Ethiopic","Inter",system-ui,sans-serif;
+    --radius:18px;
+    --shadow:0 18px 50px rgba(60,40,20,.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.2}
+  .container{width:min(1120px,92vw);margin-inline:auto}
+
+  /* language toggle */
+  .en{display:none}
+  html[data-lang="en"] .am{display:none}
+  html[data-lang="en"] .en{display:inline}
+  html[data-lang="en"] .en.block{display:block}
+
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:rgba(250,246,240,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:1.35rem;font-weight:700;letter-spacing:.3px}
+  .brand-mark{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--copper),var(--rose));display:grid;place-items:center;color:#fff;font-family:var(--serif);font-size:1.1rem}
+  .links{display:flex;gap:26px;font-weight:500;font-size:.95rem}
+  .links a{opacity:.85;transition:opacity .2s}
+  .links a:hover{opacity:1;color:var(--copper-dark)}
+  .nav-right{display:flex;align-items:center;gap:12px}
+  .lang{border:1px solid var(--line);background:var(--white);border-radius:999px;padding:6px 4px;display:flex;gap:2px;font-size:.8rem;font-weight:600}
+  .lang button{border:0;background:transparent;padding:4px 10px;border-radius:999px;cursor:pointer;font:inherit;color:var(--muted)}
+  .lang button.active{background:var(--ink);color:#fff}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--copper);color:#fff;padding:12px 22px;border-radius:999px;font-weight:600;font-size:.95rem;border:0;cursor:pointer;transition:transform .15s,background .2s;font-family:var(--sans)}
+  .btn:hover{background:var(--copper-dark);transform:translateY(-1px)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+  .btn.ghost:hover{background:var(--ink);color:#fff}
+  .menu-btn{display:none;border:0;background:transparent;font-size:1.6rem;cursor:pointer}
+  @media (max-width:840px){
+    .links{display:none;position:absolute;top:72px;left:0;right:0;background:var(--cream);flex-direction:column;padding:18px 4vw 24px;border-bottom:1px solid var(--line)}
+    .links.open{display:flex}
+    .menu-btn{display:block}
+    .nav .btn{display:none}
+  }
+
+  /* hero */
+  .hero{padding:80px 0 60px;position:relative;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--copper-dark);font-weight:600;margin-bottom:18px}
+  .eyebrow::before{content:"";width:28px;height:1px;background:var(--copper)}
+  .hero h1{font-size:clamp(2.3rem,5vw,3.8rem);margin-bottom:20px}
+  .hero h1 em{font-style:normal;color:var(--copper)}
+  .hero p{font-size:1.1rem;color:var(--muted);max-width:52ch;margin-bottom:30px}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-stats{display:flex;gap:34px;margin-top:40px;padding-top:26px;border-top:1px solid var(--line)}
+  .stat b{font-family:var(--serif);font-size:1.7rem;display:block;color:var(--ink)}
+  .stat span{font-size:.85rem;color:var(--muted)}
+  .hero-art{position:relative;aspect-ratio:4/5;border-radius:var(--radius) var(--radius) 160px 160px;background:
+      radial-gradient(circle at 30% 20%,rgba(255,255,255,.55),transparent 40%),
+      linear-gradient(160deg,#d9a988 0%,#b0652f 45%,#4a2a1a 100%);
+    box-shadow:var(--shadow);overflow:hidden}
+  .hero-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero-card{position:absolute;left:-20px;bottom:36px;background:var(--white);border-radius:14px;padding:14px 18px;box-shadow:var(--shadow);display:flex;gap:12px;align-items:center;font-size:.9rem}
+  .hero-card .dot{width:38px;height:38px;border-radius:50%;background:var(--sand);display:grid;place-items:center;font-size:1.2rem}
+  .hero-card b{display:block}
+  @media (max-width:840px){
+    .hero{padding:50px 0 40px}
+    .hero-grid{grid-template-columns:1fr}
+    .hero-art{aspect-ratio:16/11;border-radius:var(--radius)}
+    .hero-card{left:16px;bottom:16px}
+    .hero-stats{gap:22px}
+  }
+
+  /* sections */
+  section{padding:80px 0}
+  .section-head{max-width:640px;margin-bottom:44px}
+  .section-head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-bottom:12px}
+  .section-head p{color:var(--muted);font-size:1.05rem}
+  .center{text-align:center;margin-inline:auto}
+  .center .eyebrow{justify-content:center}
+  .center .eyebrow::before{display:none}
+
+  /* services */
+  .services{background:var(--white);border-block:1px solid var(--line)}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .svc{background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:transform .2s,box-shadow .2s}
+  .svc:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .svc .icon{width:48px;height:48px;border-radius:12px;background:var(--rose);display:grid;place-items:center;font-size:1.4rem;margin-bottom:16px}
+  .svc h3{font-size:1.25rem;margin-bottom:8px}
+  .svc p{color:var(--muted);font-size:.95rem;margin-bottom:16px}
+  .price{display:flex;justify-content:space-between;align-items:baseline;border-top:1px dashed var(--line);padding-top:12px;font-size:.9rem;color:var(--muted)}
+  .price b{font-family:var(--serif);font-size:1.25rem;color:var(--copper-dark)}
+  @media (max-width:900px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.svc-grid{grid-template-columns:1fr}}
+
+  /* gallery */
+  .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:14px}
+  .gal{border-radius:14px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:14px;color:#fff;font-weight:600;font-size:.9rem;text-shadow:0 1px 6px rgba(0,0,0,.4)}
+  .gal::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.45),transparent 55%)}
+  .gal span{position:relative}
+  .gal.tall{grid-row:span 2}
+  .gal.wide{grid-column:span 2}
+  .gal{background-size:cover;background-position:center;transition:transform .3s}
+  .gal:hover{transform:scale(1.02)}
+  .g1{background-image:url("https://images.unsplash.com/photo-1527203561188-dae1bc1a417f?w=900&q=80"),linear-gradient(140deg,#e7c4ad,#a95f33)}
+  .g2{background-image:url("https://images.unsplash.com/photo-1605980625982-b128a7e7fde2?w=900&q=80"),linear-gradient(140deg,#3b2a24,#8a5a41)}
+  .g3{background-image:url("https://images.unsplash.com/photo-1635273051937-a0ddef9573b6?w=900&q=80"),linear-gradient(140deg,#f0dfcf,#c68a5f)}
+  .g4{background-image:url("https://images.unsplash.com/photo-1643980268438-48c98349a118?w=1400&q=80"),linear-gradient(140deg,#5b3b2e,#d8a27f);background-position:center 30%}
+  .g5{background-image:url("https://images.unsplash.com/photo-1779350676620-fde279b1d023?w=900&q=80"),linear-gradient(140deg,#c98863,#3d2419)}
+  .g6{background-image:url("https://images.unsplash.com/photo-1761819921345-a5c1cedd19c5?w=900&q=80"),linear-gradient(140deg,#efd8c4,#9a6544)}
+  @media (max-width:760px){.gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}.gal.wide{grid-column:span 2}}
+
+  /* team */
+  .team{background:var(--sand)}
+  .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .member{background:var(--white);border-radius:var(--radius);padding:26px;text-align:center;border:1px solid var(--line)}
+  .avatar{width:110px;height:110px;border-radius:50%;margin:0 auto 16px;overflow:hidden;background:linear-gradient(135deg,var(--copper),#4a2a1a);border:4px solid var(--rose)}
+  .avatar img{width:100%;height:100%;object-fit:cover}
+  .member h3{font-size:1.2rem}
+  .member .role{color:var(--copper-dark);font-size:.85rem;font-weight:600;margin:4px 0 10px;letter-spacing:.05em}
+  .member p{color:var(--muted);font-size:.93rem}
+  @media (max-width:760px){.team-grid{grid-template-columns:1fr}}
+
+  /* testimonials */
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .quote{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:26px;position:relative}
+  .quote::before{content:"\201C";position:absolute;top:8px;right:20px;font-family:Georgia,serif;font-size:4rem;color:var(--rose);line-height:1}
+  .stars{color:#d9a12b;letter-spacing:2px;margin-bottom:12px;font-size:.95rem}
+  .quote p{color:var(--ink);font-size:.98rem;margin-bottom:16px}
+  .quote .who{font-size:.85rem;color:var(--muted);font-weight:600}
+  @media (max-width:760px){.quotes{grid-template-columns:1fr}}
+
+  /* booking */
+  .booking{background:var(--ink);color:#fff}
+  .booking .section-head p,.booking .hours li{color:#cfc4ba}
+  .book-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
+  .hours{list-style:none;margin-top:26px;border-top:1px solid rgba(255,255,255,.15)}
+  .hours li{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:.95rem}
+  .hours li b{color:#fff;font-weight:500}
+  .contact-lines{margin-top:26px;display:grid;gap:10px;font-size:.95rem;color:#e8dfd5}
+  .contact-lines a:hover{color:var(--rose)}
+  form{background:var(--white);color:var(--ink);border-radius:var(--radius);padding:30px;display:grid;gap:16px;box-shadow:var(--shadow)}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  label{display:grid;gap:6px;font-size:.85rem;font-weight:600;color:var(--muted)}
+  input,select,textarea{font:inherit;font-family:var(--sans);padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--cream);color:var(--ink);width:100%}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--copper);border-color:transparent}
+  textarea{resize:vertical;min-height:90px}
+  .note{font-size:.8rem;color:var(--muted)}
+  .success{display:none;background:#e6f4ea;color:#1e5b2f;border-radius:10px;padding:12px 14px;font-size:.9rem}
+  .success.show{display:block}
+  @media (max-width:840px){.book-grid{grid-template-columns:1fr;gap:36px}.row{grid-template-columns:1fr}}
+
+  /* location */
+  .loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+  .map{aspect-ratio:16/10;border-radius:var(--radius);background:
+      linear-gradient(rgba(176,101,47,.08) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(176,101,47,.08) 1px,transparent 1px),var(--sand);
+    background-size:28px 28px,28px 28px,auto;display:grid;place-items:center;border:1px solid var(--line);position:relative}
+  .pin{width:56px;height:56px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--copper);display:grid;place-items:center;box-shadow:var(--shadow)}
+  .pin::after{content:"";width:20px;height:20px;border-radius:50%;background:#fff}
+  .loc p{color:var(--muted);margin-bottom:12px}
+  @media (max-width:760px){.loc-grid{grid-template-columns:1fr}}
+
+  /* footer */
+  footer{background:var(--sand);padding:36px 0;border-top:1px solid var(--line);font-size:.9rem;color:var(--muted)}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .social{display:flex;gap:16px}
+  .social a:hover{color:var(--copper-dark)}
+
+  /* floating whatsapp */
+  .wa{position:fixed;right:20px;bottom:20px;width:56px;height:56px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.2);z-index:60;transition:transform .15s}
+  .wa:hover{transform:scale(1.06)}
+  .wa svg{width:30px;height:30px;fill:#fff}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#top" class="brand"><span class="brand-mark">ሳ</span><span class="am">ሳባ የጸጉር ቤት</span><span class="en">Saba Hair Salon</span></a>
+    <nav class="links" id="links">
+      <a href="#services"><span class="am">አገልግሎቶች</span><span class="en">Services</span></a>
+      <a href="#gallery"><span class="am">ጋለሪ</span><span class="en">Gallery</span></a>
+      <a href="#team"><span class="am">ባለሙያዎች</span><span class="en">Team</span></a>
+      <a href="#reviews"><span class="am">አስተያየቶች</span><span class="en">Reviews</span></a>
+      <a href="#location"><span class="am">አድራሻ</span><span class="en">Location</span></a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-set="am" class="active">አማ</button>
+        <button type="button" data-set="en">EN</button>
+      </div>
+      <a href="#book" class="btn"><span class="am">ቀጠሮ ይያዙ</span><span class="en">Book now</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow"><span class="am">ቦሌ፣ አዲስ አበባ</span><span class="en">Bole, Addis Ababa</span></div>
+      <h1>
+        <span class="am block">ጸጉርዎ <em>የእርስዎን ውበት</em> ይናገር።</span>
+        <span class="en block">Let your hair <em>speak for you</em>.</span>
+      </h1>
+      <p>
+        <span class="am">ሽሩባ፣ ቀለም፣ ኬራቲን፣ የወንዶች ቅፅ እና የጸጉር እንክብካቤ በልምድ ባላቸው ባለሙያዎች። ንጹህ ቦታ፣ ጥራት ያለው ምርት፣ እና በሰዓቱ የሚከበር ቀጠሮ።</span>
+        <span class="en">Braids, colour, keratin, men's cuts and full hair care by experienced stylists. A clean space, quality products, and appointments that start on time.</span>
+      </p>
+      <div class="hero-actions">
+        <a href="#book" class="btn"><span class="am">ቀጠሮ ይያዙ</span><span class="en">Book an appointment</span></a>
+        <a href="#services" class="btn ghost"><span class="am">ዋጋዎችን ይመልከቱ</span><span class="en">See prices</span></a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>8+</b><span class="am">ዓመታት ልምድ</span><span class="en">years of experience</span></div>
+        <div class="stat"><b>3,000+</b><span class="am">ደስተኛ ደንበኞች</span><span class="en">happy clients</span></div>
+        <div class="stat"><b>4.9★</b><span class="am">አማካይ ደረጃ</span><span class="en">average rating</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=1000&q=80" alt="ባለሙያ የደንበኛን ጸጉር ሲያስተካክል">
+      <div class="hero-card">
+        <div class="dot">📅</div>
+        <div><b><span class="am">ዛሬ ክፍት ነን</span><span class="en">Open today</span></b><span class="am">8:00 ጠዋት እስከ 8:00 ማታ</span><span class="en">8:00 AM to 8:00 PM</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow"><span class="am">አገልግሎቶች እና ዋጋዎች</span><span class="en">Services and prices</span></div>
+      <h2><span class="am">ለእያንዳንዱ የጸጉር አይነት የተዘጋጀ አገልግሎት</span><span class="en">A service for every hair type</span></h2>
+      <p><span class="am">ዋጋዎች መነሻ ናቸው። እንደ ጸጉሩ ርዝመት እና ውፍረት ሊለያዩ ይችላሉ።</span><span class="en">Prices are starting points and may vary with hair length and thickness.</span></p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc">
+        <div class="icon">✂️</div>
+        <h3><span class="am">ቅፅ እና ማስተካከል</span><span class="en">Cut and style</span></h3>
+        <p><span class="am">ለሴቶች እና ለወንዶች ዘመናዊ ቅፅ፣ ማጠብ እና ብሎው ድራይ ጨምሮ።</span><span class="en">Modern cuts for women and men, wash and blow dry included.</span></p>
+        <div class="price"><span class="am">ከ</span><span class="en">from</span><b>400 ብር</b></div>
+      </div>
+      <div class="svc">
+        <div class="icon">🧶</div>
+        <h3><span class="am">ሽሩባ</span><span class="en">Braids</span></h3>
+        <p><span class="am">የሀበሻ ሽሩባ፣ ቦክስ ብሬድ፣ ኮርን ሮው እና ትዊስት፣ ለሠርግ እና ለበዓል።</span><span class="en">Habesha braids, box braids, cornrows and twists, for weddings and holidays.</span></p>
+        <div class="price"><span class="am">ከ</span><span class="en">from</span><b>800 ብር</b></div>
+      </div>
+      <div class="svc">
+        <div class="icon">🎨</div>
+        <h3><span class="am">ቀለም እና ሃይላይት</span><span class="en">Colour and highlights</span></h3>
+        <p><span class="am">ሙሉ ቀለም፣ ባላያጅ እና ሃይላይት ጸጉርን በማይጎዳ ምርት።</span><span class="en">Full colour, balayage and highlights with gentle, professional products.</span></p>
+        <div class="price"><span class="am">ከ</span><span class="en">from</span><b>1,500 ብር</b></div>
+      </div>
+      <div class="svc">
+        <div class="icon">💧</div>
+        <h3><span class="am">ኬራቲን እና ማለስለስ</span><span class="en">Keratin and smoothing</span></h3>
+        <p><span class="am">ለሦስት ወር የሚቆይ ለስላሳ እና የሚያብረቀርቅ ጸጉር።</span><span class="en">Smooth, glossy hair that lasts up to three months.</span></p>
+        <div class="price"><span class="am">ከ</span><span class="en">from</span><b>2,500 ብር</b></div>
+      </div>
+      <div class="svc">
+        <div class="icon">🌿</div>
+        <h3><span class="am">የጸጉር እንክብካቤ</span><span class="en">Hair treatment</span></h3>
+        <p><span class="am">ጥልቅ ኮንዲሽነር፣ የራስ ቆዳ ማሳጅ እና ለተጎዳ ጸጉር ማገገሚያ።</span><span class="en">Deep conditioning, scalp massage and repair for damaged hair.</span></p>
+        <div class="price"><span class="am">ከ</span><span class="en">from</span><b>600 ብር</b></div>
+      </div>
+      <div class="svc">
+        <div class="icon">👰</div>
+        <h3><span class="am">የሠርግ እና የዝግጅት ስታይል</span><span class="en">Bridal and event styling</span></h3>
+        <p><span class="am">ለሙሽራ እና ለሚዜዎች ሙሉ ጥቅል፣ የቤት አገልግሎት አለ።</span><span class="en">Full packages for brides and bridesmaids, home service available.</span></p>
+        <div class="price"><span class="am">ከ</span><span class="en">from</span><b>3,500 ብር</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-head center">
+      <div class="eyebrow"><span class="am">ጋለሪ</span><span class="en">Gallery</span></div>
+      <h2><span class="am">ከሥራዎቻችን ጥቂቱ</span><span class="en">A few of our favourites</span></h2>
+    </div>
+    <div class="gal-grid">
+      <div class="gal g1 tall"><span><span class="am">የሀበሻ ሽሩባ</span><span class="en">Habesha braids</span></span></div>
+      <div class="gal g2"><span><span class="am">ባላያጅ</span><span class="en">Balayage</span></span></div>
+      <div class="gal g3"><span><span class="am">የወንዶች ቅፅ</span><span class="en">Men's cut</span></span></div>
+      <div class="gal g4 wide"><span><span class="am">የሠርግ ስታይል</span><span class="en">Bridal style</span></span></div>
+      <div class="gal g5"><span><span class="am">ኬራቲን</span><span class="en">Keratin</span></span></div>
+      <div class="gal g6"><span><span class="am">ትዊስት</span><span class="en">Twists</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="container">
+    <div class="section-head center">
+      <div class="eyebrow"><span class="am">ባለሙያዎቻችን</span><span class="en">Our team</span></div>
+      <h2><span class="am">ጸጉርዎን የሚንከባከቡ እጆች</span><span class="en">The hands that care for your hair</span></h2>
+    </div>
+    <div class="team-grid">
+      <div class="member">
+        <div class="avatar"><img src="https://images.unsplash.com/photo-1592520113018-180c8bc831c9?w=300&h=300&fit=crop&q=80" alt="ሳባ ተስፋዬ"></div>
+        <h3><span class="am">ሳባ ተስፋዬ</span><span class="en">Saba Tesfaye</span></h3>
+        <div class="role"><span class="am">ባለቤት እና ዋና ስታይሊስት</span><span class="en">Owner and lead stylist</span></div>
+        <p><span class="am">በቀለም እና በሠርግ ስታይል ልዩ ልምድ። 8 ዓመታት በሙያው።</span><span class="en">Specialist in colour and bridal styling. Eight years in the craft.</span></p>
+      </div>
+      <div class="member">
+        <div class="avatar"><img src="https://images.unsplash.com/photo-1533674639815-52f8aea1b132?w=300&h=300&fit=crop&q=80" alt="ሄለን መኮንን"></div>
+        <h3><span class="am">ሄለን መኮንን</span><span class="en">Helen Mekonnen</span></h3>
+        <div class="role"><span class="am">የሽሩባ ባለሙያ</span><span class="en">Braiding specialist</span></div>
+        <p><span class="am">ከባህላዊ እስከ ዘመናዊ ሽሩባ፣ በፍጥነት እና በጥንቃቄ።</span><span class="en">From traditional to modern braids, fast and careful.</span></p>
+      </div>
+      <div class="member">
+        <div class="avatar"><img src="https://images.unsplash.com/photo-1626201061259-4947af6c1430?w=300&h=300&fit=crop&q=80" alt="ዳዊት አለሙ"></div>
+        <h3><span class="am">ዳዊት አለሙ</span><span class="en">Dawit Alemu</span></h3>
+        <div class="role"><span class="am">የወንዶች ጸጉር ባለሙያ</span><span class="en">Men's barber</span></div>
+        <p><span class="am">ፌድ፣ ጢም ማስተካከል እና ክላሲክ ቅፅ።</span><span class="en">Fades, beard trims and classic cuts.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="container">
+    <div class="section-head center">
+      <div class="eyebrow"><span class="am">የደንበኞች አስተያየት</span><span class="en">What clients say</span></div>
+      <h2><span class="am">ደንበኞቻችን ምን ይላሉ?</span><span class="en">Kind words from our clients</span></h2>
+    </div>
+    <div class="quotes">
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p><span class="am">ለሠርጌ ጸጉሬን እዚህ ነው ያሰራሁት። ሁሉም ሰው አድንቆታል፣ እና ቀኑን ሙሉ አልተበላሸም።</span><span class="en">I had my wedding hair done here. Everyone loved it and it held all day long.</span></p>
+        <div class="who"><span class="am">ራሄል፣ ቦሌ</span><span class="en">Rahel, Bole</span></div>
+      </div>
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p><span class="am">ቀጠሮ በሰዓቱ ይጀምራል፣ ቦታው ንጹህ ነው፣ ዋጋውም ተመጣጣኝ ነው። ሁልጊዜ እዚህ ነው የምመጣው።</span><span class="en">Appointments start on time, the place is spotless and the prices are fair. I always come back.</span></p>
+        <div class="who"><span class="am">ሰላም፣ ሲኤምሲ</span><span class="en">Selam, CMC</span></div>
+      </div>
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p><span class="am">ዳዊት የሰራልኝ ፌድ ምርጥ ነው። ጢሜንም በጥንቃቄ አስተካከለልኝ።</span><span class="en">Dawit gave me the cleanest fade I have had, and lined up my beard perfectly.</span></p>
+        <div class="who"><span class="am">ናትናኤል፣ ገርጂ</span><span class="en">Natnael, Gerji</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="book">
+  <div class="container book-grid">
+    <div>
+      <div class="section-head">
+        <div class="eyebrow" style="color:var(--rose)"><span class="am">ቀጠሮ</span><span class="en">Booking</span></div>
+        <h2><span class="am">ቀጠሮዎን በዋትስአፕ ይያዙ</span><span class="en">Book your appointment on WhatsApp</span></h2>
+        <p><span class="am">ፎርሙን ይሙሉ፣ መልዕክቱ በዋትስአፕ ተዘጋጅቶ ይከፈታል። በደቂቃዎች ውስጥ እናረጋግጥልዎታለን።</span><span class="en">Fill in the form and a ready-made WhatsApp message opens. We confirm within minutes.</span></p>
+      </div>
+      <ul class="hours">
+        <li><span class="am">ሰኞ እስከ አርብ</span><span class="en">Monday to Friday</span><b>8:00 – 20:00</b></li>
+        <li><span class="am">ቅዳሜ</span><span class="en">Saturday</span><b>8:00 – 21:00</b></li>
+        <li><span class="am">እሁድ</span><span class="en">Sunday</span><b>10:00 – 18:00</b></li>
+      </ul>
+      <div class="contact-lines">
+        <a href="tel:+251911000000">📞 +251 911 000 000</a>
+        <a href="https://wa.me/251911000000" target="_blank" rel="noopener">💬 WhatsApp: +251 911 000 000</a>
+        <span>📍 <span class="am">ቦሌ መድኃኒዓለም፣ ከኤድና ሞል ጀርባ፣ አዲስ አበባ</span><span class="en">Bole Medhanialem, behind Edna Mall, Addis Ababa</span></span>
+      </div>
+    </div>
+
+    <form id="bookForm" novalidate>
+      <div class="row">
+        <label><span class="am">ስም</span><span class="en">Name</span><input name="name" required data-ph-am="ሙሉ ስም" data-ph-en="Full name"></label>
+        <label><span class="am">ስልክ</span><span class="en">Phone</span><input name="phone" type="tel" required data-ph-am="09xx xxx xxx" data-ph-en="09xx xxx xxx"></label>
+      </div>
+      <label><span class="am">አገልግሎት</span><span class="en">Service</span>
+        <select name="service" required>
+          <option value="ቅፅ እና ማስተካከል / Cut and style">✂️ ቅፅ እና ማስተካከል / Cut and style</option>
+          <option value="ሽሩባ / Braids">🧶 ሽሩባ / Braids</option>
+          <option value="ቀለም / Colour">🎨 ቀለም / Colour</option>
+          <option value="ኬራቲን / Keratin">💧 ኬራቲን / Keratin</option>
+          <option value="እንክብካቤ / Treatment">🌿 እንክብካቤ / Treatment</option>
+          <option value="የሠርግ ስታይል / Bridal">👰 የሠርግ ስታይል / Bridal</option>
+        </select>
+      </label>
+      <div class="row">
+        <label><span class="am">ቀን</span><span class="en">Date</span><input name="date" type="date" required></label>
+        <label><span class="am">ሰዓት</span><span class="en">Time</span><input name="time" type="time" required></label>
+      </div>
+      <label><span class="am">ተጨማሪ መልዕክት</span><span class="en">Notes</span><textarea name="notes" data-ph-am="የሚመርጡት ባለሙያ፣ የጸጉር ርዝመት..." data-ph-en="Preferred stylist, hair length..."></textarea></label>
+      <button class="btn" type="submit"><span class="am">በዋትስአፕ ይላኩ</span><span class="en">Send on WhatsApp</span></button>
+      <div class="success" id="success"><span class="am">ዋትስአፕ ተከፍቷል። መልዕክቱን ይላኩ እና እናረጋግጥልዎታለን።</span><span class="en">WhatsApp opened. Send the message and we will confirm shortly.</span></div>
+      <div class="note"><span class="am">ወይም በቀጥታ ይደውሉ፡ +251 911 000 000</span><span class="en">Or call us directly: +251 911 000 000</span></div>
+    </form>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location">
+  <div class="container loc-grid">
+    <div class="map"><div class="pin"></div></div>
+    <div class="loc">
+      <div class="eyebrow"><span class="am">አድራሻ</span><span class="en">Find us</span></div>
+      <h2 style="font-size:2rem;margin-bottom:14px"><span class="am">ቦሌ መድኃኒዓለም</span><span class="en">Bole Medhanialem</span></h2>
+      <p><span class="am">ከኤድና ሞል ጀርባ፣ የመጀመሪያው ፎቅ። ነጻ የመኪና ማቆሚያ አለ።</span><span class="en">Behind Edna Mall, first floor. Free parking available.</span></p>
+      <p><span class="am">ቤት ድረስ አገልግሎት ለሠርግ እና ለልዩ ዝግጅቶች ይሰጣል።</span><span class="en">Home service is available for weddings and special events.</span></p>
+      <a class="btn ghost" href="https://maps.google.com/?q=Bole+Medhanialem+Addis+Ababa" target="_blank" rel="noopener"><span class="am">በካርታ ይክፈቱ</span><span class="en">Open in Maps</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container foot">
+    <div>© <span id="year"></span> <span class="am">ሳባ የጸጉር ቤት። መብቱ በህግ የተጠበቀ ነው።</span><span class="en">Saba Hair Salon. All rights reserved.</span></div>
+    <div class="social">
+      <a href="#" aria-label="Instagram">Instagram</a>
+      <a href="#" aria-label="TikTok">TikTok</a>
+      <a href="#" aria-label="Facebook">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/251911000000" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.4.7 4.7 2 6.7L3 29l6.9-2.2c1.9 1 4 1.5 6.1 1.5 7 0 12.7-5.6 12.7-12.6S23 3 16 3zm0 22.9c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.1 1.3 1.3-3.9-.3-.4a10.3 10.3 0 0 1-1.7-5.6C5.4 9.9 10.2 5.2 16 5.2s10.6 4.7 10.6 10.4S21.8 25.9 16 25.9zm5.8-7.8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.6-1.8-1.8-2.1-.2-.3 0-.5.1-.7l.5-.6.3-.5c.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.4 3.6 5.8 5 .8.4 1.4.6 1.9.7.8.3 1.6.2 2.2.1.7-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.1-.3-.2-.6-.4z"/></svg>
+</a>
+
+<script>
+  // Language toggle
+  const html = document.documentElement;
+  const langBtns = document.querySelectorAll('.lang button');
+  function applyPlaceholders(lang){
+    document.querySelectorAll('[data-ph-am]').forEach(el => {
+      el.placeholder = lang === 'en' ? el.dataset.phEn : el.dataset.phAm;
+    });
+  }
+  function setLang(lang){
+    html.dataset.lang = lang;
+    html.lang = lang;
+    langBtns.forEach(b => b.classList.toggle('active', b.dataset.set === lang));
+    applyPlaceholders(lang);
+    try { localStorage.setItem('salon-lang', lang); } catch(e){}
+  }
+  langBtns.forEach(b => b.addEventListener('click', () => setLang(b.dataset.set)));
+  let saved = 'am';
+  try { saved = localStorage.getItem('salon-lang') || 'am'; } catch(e){}
+  setLang(saved);
+
+  // Mobile menu
+  const links = document.getElementById('links');
+  document.getElementById('menuBtn').addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  // Booking form opens WhatsApp with a prefilled message
+  const WA_NUMBER = '251911000000'; // change to the salon's WhatsApp number
+  document.getElementById('bookForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const f = e.target;
+    if (!f.checkValidity()) { f.reportValidity(); return; }
+    const d = Object.fromEntries(new FormData(f).entries());
+    const en = html.dataset.lang === 'en';
+    const msg = en
+      ? `Hello Saba Hair Salon, I would like to book.\nName: ${d.name}\nPhone: ${d.phone}\nService: ${d.service}\nDate: ${d.date}\nTime: ${d.time}\nNotes: ${d.notes || '-'}`
+      : `ሰላም ሳባ የጸጉር ቤት፣ ቀጠሮ መያዝ እፈልጋለሁ።\nስም: ${d.name}\nስልክ: ${d.phone}\nአገልግሎት: ${d.service}\nቀን: ${d.date}\nሰዓት: ${d.time}\nመልዕክት: ${d.notes || '-'}`;
+    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+    document.getElementById('success').classList.add('show');
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
